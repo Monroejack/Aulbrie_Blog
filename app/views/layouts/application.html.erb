@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aulbrie London</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Image and text -->
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <%= link_to 'Aulbrie London\'s Blog', root_path, class: 'navbar-brand' %>
+      </div>
+    </nav>
+
+    <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+</html>

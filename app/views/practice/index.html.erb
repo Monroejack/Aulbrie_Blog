@@ -1,0 +1,14 @@
+<% unless @name.blank? %>
+<p>
+  Hello <% @name >!
+  </p>
+<% end %>
+
+<h1>Choose your color!</h1>
+
+<% %w(red yellow blue green orange).each do |color| %>
+
+<p>
+<%= link_to color.capitalize, about_path(color: color) %>
+</p>
+<% end %>

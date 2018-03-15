@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class='jumbotron'>
+<p>
+  <h1><%= @post.title %></h1>
+</p>
+
+<p>
+  <h3>
+  <i>Written by: </i>
+  <%= @post.author %>
+</h3>
+</p>
+
+<p>
+  <i>Last updated:<%= @post.updated_at.strftime("%B %d %Y") %></i>
+</p>
+</div>
+
+<div class='post-container'>
+<p>
+  <%= @post.blog_entry %>
+</p>
+</div>
+
+<hr>
+
+<form>
+<div class='comment'>
+  <% @post.comments.each do |comment| %>
+      <p>
+    <%= comment.author %> said...<br />
+    <%= comment.comment_entry %>
+</p>
+</div>
+<% end %>
+
+  <div class="comments">
+    <%= render 'comments/form', comment: @comment %>
+  </div>
+</form>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

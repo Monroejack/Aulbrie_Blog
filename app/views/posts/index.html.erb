@@ -23,7 +23,7 @@
         <td><%= link_to post.title, post %></td>
         <td>
           <%= image_tag post.user.avatar.url, class: 'avatar' %>
-          <%= post.user.username %>
+          <%= link_to post.user.username, user_posts_path(username: post.user.username) %>
         </td>
         <td>
           <div class ='pull-right'>

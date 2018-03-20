@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .jumbotron {
-  background-color: $primary-color;
+  background-color: grey;
 }
 
 .table {
@@ -26,4 +26,20 @@ td {
   border-style: double;
   border-width: 0px, 4px;
   border-color: $primary-color;
+}
+
+.comments {
+  margin-left: 20px;
+  border-style: ridge;
+  border-left-width: none none none thin;
+  border-color: yellow;
+}
+
+nav {
+  background-color: $primary-color;
+}
+
+.pagination {
+  background-color: inherit;
+  align-items: center;
 }

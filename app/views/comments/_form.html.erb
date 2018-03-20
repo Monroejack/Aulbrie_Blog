@@ -12,16 +12,12 @@
   <% end %>
 
       <div class="form-group">
-        <%= form.label :author %>
-        <%= form.text_field :author, id: :comment_author, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
         <%= form.label :comment_entry %>
         <%= form.text_area :comment_entry, id: :comment_comment_entry, class: 'form-control' %>
       </div>
 
       <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
 
       <div class="actions">
         <%= form.submit nil, class: 'btn btn-default' %>

@@ -4,7 +4,7 @@
     <title>Aulbrie London</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Image and text -->
@@ -13,14 +13,33 @@
 
   <body>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <%= link_to 'Aulbrie London\'s Blog', root_path, class: 'navbar-brand' %>
+        <img src="images/LOGO.png" width="120" height="40">
+        <% link_to root_path, class: 'navbar-brand' %>
+
+        <div class='dropdown-menu-right d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3'>
+          <!-- <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="https://github.com/twbs/bootstrap/archive/v4.0.0.zip">Download</a> -->
+          <% if user_signed_in? %>
+          <div class='nav-item dropdown'>
+          <%= link_to '#', class: 'dropdown-toggle', 'data-toggle' => "dropdown" do %>
+          <%= image_tag current_user.avatar.url, class: 'avatar' %>
+            <% end %>
+
+            <ul class="dropdown-menu">
+              <li> Signed in as <%= current_user.username %> </li>
+              <li role='separator' class='dropdown-divider'> </li>
+          <li> <%= link_to 'Edit Registration', edit_user_registration_path %> </li>
+          <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </li>
+          <% end %>
+          </ul>
+        </div>
       </div>
-    </nav>
+    </div>
+</nav>
 
     <div class="container">
     <%= yield %>
-  </div>
+    </div>
   </body>
 </html>
